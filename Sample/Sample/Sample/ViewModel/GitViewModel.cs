@@ -37,6 +37,11 @@ namespace Sample.ViewModel
 
         #endregion
 
+        #region Constructor
+
+
+        #endregion
+
         #region Command
 
         public ICommand SubmitCommand
@@ -45,7 +50,7 @@ namespace Sample.ViewModel
             { 
                 return new Command(() => 
                             {
-
+                                //Service
                             }); 
             }
         }

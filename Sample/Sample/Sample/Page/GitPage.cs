@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sample.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,9 @@ namespace Sample.Page
             entry.SetBinding(Entry.TextProperty, "UserName");
 
             var btn = new Button{ Text = "Search" };
-            entry.SetBinding(Button.CommandProperty, "SubmitCommand");
+            btn.SetBinding(Button.CommandProperty, "SubmitCommand");
+
+            BindingContext = new GitViewModel();
 
             Content = new StackLayout
             {

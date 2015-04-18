@@ -7,21 +7,15 @@ namespace Sample.Service
 {
     public class GitService
     {
-
-
 		public void User GetUser(string user)
 		{
-	
-
 			WebRequest requestPic = WebRequest.Create(string.Format("https://api.github.com/users/{0}",user));
 			object request;
 			requestPic.BeginGetResponse (FeedDownloaded, request);
-
 		}
 
 		void FeedDownloaded (IAsyncResult result)
 		{
-
 			var request = result.AsyncState as HttpWebRequest;
 
 			try {
