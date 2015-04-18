@@ -1,7 +1,8 @@
 ﻿
-using ChartsF.Pages;
+
 using System.Collections.Generic;
 using Xamarin.Forms;
+using Sample.Page;
 
 namespace Xamarin.HighCharts.Page.MenuRootPage
 {
@@ -12,38 +13,11 @@ namespace Xamarin.HighCharts.Page.MenuRootPage
         {
             this.Add(new MenuRootIem()
             {
-                Title = "Login",
+                Title = "Profile",
                 //   IconSource = "contacts.png",
-                TargetType = typeof(LoginUserPage)
+                TargetType = typeof(GitPage)
             });
-
-            this.Add(new MenuRootIem()
-            {
-                Title = "User Register",
-                //IconSource = "ic_usuario.png",
-                TargetType = typeof(RegisterUserPage)
-            });
-
-			this.Add(new MenuRootIem()
-				{
-					Title = "Category",
-					//   IconSource = "contacts.png",
-					TargetType = typeof(CategoryPage)
-				});
-
-			this.Add(new MenuRootIem()
-				{
-					Title = "Expense",
-					//   IconSource = "contacts.png",
-                    TargetType = typeof(CarouselExpensePage)
-				});
-
-            this.Add(new MenuRootIem()
-            {
-                Title = "Demonstrative Chart",
-                //   IconSource = "contacts.png",
-                TargetType = typeof(ChartPageLines)
-            });
+			
 			
             
         #endregion

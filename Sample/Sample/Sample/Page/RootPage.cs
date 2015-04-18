@@ -1,9 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.HighCharts.InfraStructure.DependencyService;
-using Xamarin.HighCharts.Messages;
 using Xamarin.HighCharts.Page.MenuRootPage;
-using Xamarin.HighCharts.Page.Navigation;
+
+using Sample.Page;
 
 namespace Xamarin.HighCharts.Page
 {
@@ -17,14 +16,14 @@ namespace Xamarin.HighCharts.Page
         #region Constructor
         public RootPage()
         {
-            var categoryService = DependencyResolver.Container.GetService<ICategoryService>();
+        
 
-            categoryService.GetAllCategoryInCloud();
+          
             var menuPage = new MenuPage();
             menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuRootIem);
 
             Master = menuPage;
-            Detail = new CustomNavigationPage(new LoginUserPage())
+			Detail = new NavigationPage(new GitPage())
             {
                 BarBackgroundColor = backGroundBolor,
             };
@@ -36,26 +35,15 @@ namespace Xamarin.HighCharts.Page
 
         private void NavigateTo(MenuRootIem menu)
         {
-            if (menu.TargetType != typeof(CarouselExpensePage))
-            {
+            
                 Xamarin.Forms.Page displayPage = (Xamarin.Forms.Page)Activator.CreateInstance(menu.TargetType);
-                Detail = new CustomNavigationPage(displayPage)
+			Detail = new NavigationPage(displayPage)
                 {
                     BarBackgroundColor = backGroundBolor,
                     Title = displayPage.Title
                 };
-            }
-            else
-            {
-                CarouselExpensePage displayPage = (CarouselExpensePage)Activator.CreateInstance(menu.TargetType);
-                Detail = new CustomNavigationPage(displayPage)
-                {
-                    BarBackgroundColor = backGroundBolor,
-                    Title = displayPage.Title
-                };
-            }
-
-
+           
+            
             IsPresented = false;
         }
         protected override void OnAppearing()
