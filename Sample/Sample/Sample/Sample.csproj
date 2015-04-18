@@ -45,6 +45,7 @@
     <Compile Include="MenuRootPage\MenuPage.cs" />
     <Compile Include="MenuRootPage\MenuRootIem.cs" />
     <Compile Include="Page\RootPage.cs" />
+    <Compile Include="Page\CustomImageCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
