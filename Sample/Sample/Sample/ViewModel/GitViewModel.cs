@@ -45,10 +45,20 @@ namespace Sample.ViewModel
             { 
                 return new Command(() => 
                             {
-						//GetUser();
+						GetUser();
                             }); 
             }
         }
+
+
+		public void GetUser()
+		{
+			Service = new GitService ();
+
+			Octokit.User user = Service.GetUserAsync (UserName);
+
+			UserName = user.Name;
+		}
 
         #endregion
 

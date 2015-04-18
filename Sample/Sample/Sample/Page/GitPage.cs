@@ -11,11 +11,20 @@ namespace Sample.Page
     {
         public GitPage()
         {
-            var entry = new Entry{ Placeholder = "Username" };
-            entry.SetBinding(Entry.TextProperty, "UserName");
+            var entryName = new Entry{ Placeholder = "Username" };
+			entryName.SetBinding(Entry.TextProperty, "UserName");
+
+			var Email = new Entry{ Placeholder = "Email" };
+			Email.SetBinding(Entry.TextProperty, "Email");
+
+			var Login = new Entry{ Placeholder = "Login" };
+			Login.SetBinding(Entry.TextProperty, "Login");
+
+
+
 
             var btn = new Button{ Text = "Search" };
-            entry.SetBinding(Button.CommandProperty, "SubmitCommand");
+			btn.SetBinding(Button.CommandProperty, "SubmitCommand");
 
             Content = new StackLayout
             {
