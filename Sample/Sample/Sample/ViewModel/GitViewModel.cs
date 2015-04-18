@@ -19,6 +19,10 @@ namespace Sample.ViewModel
 
         private string _userName;
 
+		private string _email;
+
+		private string _login;
+
         #endregion
 
         #region Properties
@@ -34,6 +38,28 @@ namespace Sample.ViewModel
                 RaisedPropertyChanged(() => UserName);
             }
         }
+
+
+		public string Email 
+		{
+			get { return _email;  }
+			set 
+			{
+				_email = value;
+				RaisedPropertyChanged(() => Email);
+			}
+		}
+
+
+		public string Login 
+		{
+			get { return _login;  }
+			set 
+			{
+				_login = value;
+				RaisedPropertyChanged(() => Login);
+			}
+		}
 
         #endregion
 
