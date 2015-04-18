@@ -9,5 +9,18 @@ namespace Sample.Page
 {
     public class GitPage : ContentPage
     {
+        public GitPage()
+        {
+            var entry = new Entry{ Placeholder = "Username" };
+            entry.SetBinding(Entry.TextProperty, "UserName");
+
+            var btn = new Button{ Text = "Search" };
+            entry.SetBinding(Button.CommandProperty, "SubmitCommand");
+
+            Content = new StackLayout
+            {
+                Children = { entry, btn }
+            };
+        }
     }
 }
