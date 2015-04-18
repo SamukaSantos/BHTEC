@@ -11,7 +11,7 @@ namespace Sample
     {
         public App()
         {
-            MainPage = new GitPage()
+            MainPage = new NavigationPage(new GitPage());
         }
     }
 }
