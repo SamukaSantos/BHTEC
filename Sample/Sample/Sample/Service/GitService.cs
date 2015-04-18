@@ -13,16 +13,9 @@ namespace Sample.Service
 
 		public   Octokit.User GetUserAsync (string username)
 		 {
-	
-		
 			var client = new GitHubClient(new ProductHeaderValue("DesafioMeetup"));
-			          
 
 			return  client.User.Get(username).Result;
-
-
-			           
-
 		}
 
     }
