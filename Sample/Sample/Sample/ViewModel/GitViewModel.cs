@@ -45,7 +45,7 @@ namespace Sample.ViewModel
             { 
                 return new Command(() => 
                             {
-
+						//GetUser();
                             }); 
             }
         }
