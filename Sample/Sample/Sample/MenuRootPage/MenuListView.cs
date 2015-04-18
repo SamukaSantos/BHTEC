@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.HighCharts.Page.MenuRootPage;
+using Xamarin.HighCharts.Views;
 
 
 namespace Xamarin.HighCharts.Page
@@ -15,7 +16,7 @@ namespace Xamarin.HighCharts.Page
             VerticalOptions = LayoutOptions.FillAndExpand;
             BackgroundColor = Color.Transparent;
 
-            var cell = new DataTemplate(typeof(Cell));
+            var cell = new DataTemplate(typeof(CustomImageCell));
             cell.SetBinding(TextCell.TextProperty, "Title");
             cell.SetBinding(ImageCell.ImageSourceProperty, "IconSource");
 
