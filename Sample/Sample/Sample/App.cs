@@ -1,25 +1,17 @@
-﻿using System;
+﻿using Sample.Page;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
 
 namespace Sample
 {
-    public class App
+    public class App : Application
     {
-        public static Page GetMainPage()
+        public App()
         {
-            return new ContentPage
-            {
-                Content = new Label
-                {
-                    Text = "Hello, Forms !",
-                    VerticalOptions = LayoutOptions.CenterAndExpand,
-                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                },
-            };
+            MainPage = new GitPage()
         }
     }
 }
