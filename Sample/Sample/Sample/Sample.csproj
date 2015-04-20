@@ -52,6 +52,7 @@
     <Compile Include="Service\IEmail.cs" />
     <Compile Include="Service\IGitService.cs" />
     <Compile Include="Service\IPathPlatform.cs" />
+    <Compile Include="Service\IWP8MediaPicker.cs" />
     <Compile Include="ViewModel\DetailViewModel.cs" />
     <Compile Include="ViewModel\GitViewModel.cs" />
     <Compile Include="Page\Interface\IMessage.cs" />

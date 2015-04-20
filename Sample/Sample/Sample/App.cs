@@ -9,5 +9,11 @@ namespace Sample
         {
             MainPage = new RootPage();
         }
+
+        ///WINDOWS PHONE HACK.
+        public static Xamarin.Forms.Page GetMainPage()
+        {
+            return new App().MainPage;
+        }
     }
 }

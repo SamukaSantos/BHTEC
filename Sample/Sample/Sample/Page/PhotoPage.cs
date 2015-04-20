@@ -99,33 +99,51 @@ namespace Sample.Page
 
         public async Task<MediaFile> TakePicture() 
         {
-            var mediaPicker = DependencyService.Get<IMediaPicker>();
-            return await mediaPicker.TakePhotoAsync(new CameraMediaStorageOptions { DefaultCamera = CameraDevice.Rear, MaxPixelDimension = 400 }).ContinueWith(t =>
+            if (Device.OS == TargetPlatform.WinPhone)
             {
-                if (t.IsFaulted)
+                var mediaPicker = DependencyService.Get<IWP8MediaPicker>();
+                mediaPicker.Show();
+                mediaPicker.Result = (c, d) =>
                 {
-                    DisplayAlert("Error !", t.Exception.InnerException.ToString(), "OK");
-                }
-                else if (t.IsCanceled)
-                {
+                    _mediaPath = d;
+                    _imageProfile.Source = ImageSource.FromStream(() => c);
+                    _sendButton.IsVisible = true;
+                };
 
-                }
-                else
-                {
-                    var mediaFile        = t.Result;
-                     _mediaPath          = mediaFile.Path;
-                    _imageProfile.Source = ImageSource.FromStream(() => mediaFile.Source);
-                    _sendButton.IsVisible = true; 
-                    return mediaFile;
-                }
+
                 return null;
-            }, _scheduler);
-        
+            }
+
+            else
+            {
+                var mediaPicker = DependencyService.Get<IMediaPicker>();
+                return await mediaPicker.TakePhotoAsync(new CameraMediaStorageOptions { DefaultCamera = CameraDevice.Rear, MaxPixelDimension = 400 }).ContinueWith(t =>
+                {
+                    if (t.IsFaulted)
+                    {
+                        DisplayAlert("Error !", t.Exception.InnerException.ToString(), "OK");
+                    }
+                    else if (t.IsCanceled)
+                    {
+
+                    }
+                    else
+                    {
+                        var mediaFile = t.Result;
+                        _mediaPath = mediaFile.Path;
+                        _imageProfile.Source = ImageSource.FromStream(() => mediaFile.Source);
+                        _sendButton.IsVisible = true;
+                        return mediaFile;
+                    }
+                    return null;
+                }, _scheduler);
+            }
         }
 
         public async void Select()
         {
-            var action = await DisplayActionSheet("Image Action", "Cancel", null, "Photo Library", "Take Picture");
+            //var action = await DisplayActionSheet("Image Action", "Cancel", null, "Photo Library", "Take Picture");
+            var action = await DisplayActionSheet("Image Action", "Cancel", null, "Take Picture");
             if (action != null)
             {
                 switch (action)
@@ -133,9 +151,9 @@ namespace Sample.Page
                     case "Take Picture":
                         await TakePicture();
                         break;
-                    case "Photo Library":
-                        await OpenGallery();
-                        break;
+                    //case "Photo Library":
+                    //    await OpenGallery();
+                    //    break;
                     case "Cancel":
                         break;
                 }
