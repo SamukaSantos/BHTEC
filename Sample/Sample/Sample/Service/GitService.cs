@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace Sample.Service
 {
-    public class GitService
-    {
-
-
-		public   Octokit.User GetUserAsync (string username)
+	public class GitService
+	{
+		public Octokit.User GetUserAsync (string username)
 		 {
 			var client = new GitHubClient(new ProductHeaderValue("DesafioMeetup"));
 
 			return  client.User.Get(username).Result;
 		}
 
-    }
+	}
 }
