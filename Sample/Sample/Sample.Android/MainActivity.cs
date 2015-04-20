@@ -11,7 +11,7 @@ using Xamarin.Forms.Platform.Android;
 
 namespace Sample.Droid
 {
-    [Activity(Label = "Sample", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Sample", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity :
     global::Xamarin.Forms.Platform.Android.FormsApplicationActivity 
     {
@@ -23,6 +23,7 @@ namespace Sample.Droid
 
             LoadApplication(new App()); 
         }
+
     }
 }
 

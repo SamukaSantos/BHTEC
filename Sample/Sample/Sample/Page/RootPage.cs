@@ -1,31 +1,28 @@
-﻿using System;
+﻿using Sample.Page.MenuRootPage;
+using System;
 using Xamarin.Forms;
-using Xamarin.HighCharts.Page.MenuRootPage;
 
-using Sample.Page;
-
-namespace Xamarin.HighCharts.Page
+namespace Sample.Page
 {
-    public class RootPage : Xamarin.Forms.MasterDetailPage
+    public class RootPage : MasterDetailPage
     {
         #region Fields
 
-        private Color backGroundBolor = Color.FromHex("6fc833");
+        private Color _backGroundBolor = Color.FromHex("6fc833");
+
         #endregion
 
         #region Constructor
         public RootPage()
         {
         
-
-          
             var menuPage = new MenuPage();
             menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuRootIem);
 
             Master = menuPage;
 			Detail = new NavigationPage(new GitPage())
             {
-                BarBackgroundColor = backGroundBolor,
+                BarBackgroundColor = _backGroundBolor,
             };
         }
 
@@ -35,13 +32,12 @@ namespace Xamarin.HighCharts.Page
 
         private void NavigateTo(MenuRootIem menu)
         {
-            
-                Xamarin.Forms.Page displayPage = (Xamarin.Forms.Page)Activator.CreateInstance(menu.TargetType);
+            var displayPage = (Xamarin.Forms.Page)Activator.CreateInstance(menu.TargetType);
 			Detail = new NavigationPage(displayPage)
-                {
-                    BarBackgroundColor = backGroundBolor,
-                    Title = displayPage.Title
-                };
+            {
+                BarBackgroundColor = _backGroundBolor,
+                Title = displayPage.Title
+            };
            
             
             IsPresented = false;

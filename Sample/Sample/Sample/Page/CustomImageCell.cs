@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Xamarin.HighCharts.Views
+namespace Sample.Page
 {
     public class CustomImageCell : ImageCell
     {

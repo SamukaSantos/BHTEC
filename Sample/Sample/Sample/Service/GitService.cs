@@ -1,22 +1,19 @@
-﻿using System.Net;
-using System;
-using Xamarin.Forms;
-using Octokit;
+﻿using Octokit;
 using System.Threading.Tasks;
-
 
 namespace Sample.Service
 {
-    public class GitService
+    public class GitService : IGitService
     {
 
+        #region Methods
 
-		public   Octokit.User GetUserAsync (string username)
-		 {
-			var client = new GitHubClient(new ProductHeaderValue("DesafioMeetup"));
-
-			return  client.User.Get(username).Result;
-		}
+        public async Task<User> GetUserAsync(string userName)
+        {
+            var client = new GitHubClient(new ProductHeaderValue("MeetupChallenge"));
+            return await client.User.Get(userName);
+        } 
+        #endregion
 
     }
 }

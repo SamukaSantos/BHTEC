@@ -1,33 +1,25 @@
-﻿using Sample.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sample.Page;
+using Sample.Service;
+using Sample.Service.Creator;
+using Sample.ViewModel.Interface;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Sample.ViewModel
 {
-    public class GitViewModel : INotifyPropertyChanged
+    public class GitViewModel : ViewModelBase, IGitViewModel
     {
 
         #region Fields
 
         private string _userName;
-
-		private string _email;
-
-		private string _login;
+        private Command _searchCommand;
 
         #endregion
 
         #region Properties
 
-        public GitService Service { get; set; }
+        public IGitService Service { get; set; }
 
         public string UserName 
         {
@@ -39,83 +31,52 @@ namespace Sample.ViewModel
             }
         }
 
-
-		public string Email 
-		{
-			get { return _email;  }
-			set 
-			{
-				_email = value;
-				RaisedPropertyChanged(() => Email);
-			}
-		}
-
-
-		public string Login 
-		{
-			get { return _login;  }
-			set 
-			{
-				_login = value;
-				RaisedPropertyChanged(() => Login);
-			}
-		}
-
         #endregion
 
         #region Command
 
-        public ICommand SubmitCommand
+        public ICommand SearchCommand
         {
             get 
-            { 
-                return new Command(() => 
-                            {
-						GetUser();
-                            }); 
+            {
+                return _searchCommand ?? (_searchCommand = new Command<string>( c => SearchCommandAction(UserName)));
             }
         }
-
-
-		public void GetUser()
-		{
-			Service = new GitService ();
-
-			Octokit.User user = Service.GetUserAsync (UserName);
-
-			UserName = user.Name;
-		}
 
         #endregion
 
         #region Constructor
 
-        public GitViewModel()
+        public GitViewModel(INavigation navigation)
+            : base(navigation)
         {
-            Service = new GitService();
+            Service = ServiceCreator.Get<GitService>();
         }
 
         #endregion
-
-        #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
-
 
         #region Methods
 
-        protected void RaisedPropertyChanged<PropertyType>(Expression<Func<PropertyType>> property)
+        public virtual async void SearchCommandAction(string userName) 
         {
-            var memberExpression = property.Body as MemberExpression;
-            var propertyInfo = memberExpression.Member as PropertyInfo;
-
-            if (propertyInfo != null)
+            if (string.IsNullOrEmpty(userName)) 
             {
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs(propertyInfo.Name));
+                await Message.DisplayAlert("Error", "Username is required.", "Ok");
+                return;
             }
+
+            try
+            {
+                var user = await Service.GetUserAsync(UserName);
+                await Navigation.PushAsync(ServiceCreator.Get<DetailPage>(user));
+            }
+            catch (System.Exception)
+            {
+              Message.DisplayAlert("Error", "Service error. Try again !", "Ok");
+            } 
         }
 
         #endregion
+
     }
 }
