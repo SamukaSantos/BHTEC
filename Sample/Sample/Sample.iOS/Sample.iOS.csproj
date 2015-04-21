@@ -90,32 +90,31 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ExifLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\ExifLib.PCL.1.0.0\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="Xamarin.Forms.Core, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ExifLib">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.0\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoTouch10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Labs, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Xamarin.Forms.Labs.1.1.1-beta6\lib\MonoTouch\Xamarin.Forms.Labs.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Labs.iOS">
-      <HintPath>..\..\packages\Xamarin.Forms.Labs.1.1.1-beta6\lib\MonoTouch\Xamarin.Forms.Labs.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.iOS.Classic, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Xamarin.Forms.Platform.iOS.Classic">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoTouch10\Xamarin.Forms.Platform.iOS.Classic.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\packages\Xamarin.Forms.1.4.1.6349\lib\MonoTouch10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Labs">
+      <HintPath>..\..\packages\Xamarin.Forms.Labs.1.0.1.5\lib\portable-net45+win+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.Labs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\monotouch\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\monotouch\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
