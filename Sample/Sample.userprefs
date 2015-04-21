@@ -1,0 +1,28 @@
+﻿<Properties StartupItem="Sample/Sample.iOS/Sample.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sample.NUnit/Test.cs">
+    <Files>
+      <File FileName="Sample/Sample/Page/GitPage.cs" Line="1" Column="1" />
+      <File FileName="Sample/Sample/Service/GitService.cs" Line="6" Column="22" />
+      <File FileName="Sample.NUnit/Test.cs" Line="36" Column="4" />
+      <File FileName="Sample/Sample/Service/Creator/ServiceCreator.cs" Line="22" Column="3" />
+      <File FileName="Sample/Sample/Page/DetailPage.cs" Line="17" Column="27" />
+      <File FileName="Sample/Sample/Page/PhotoPage.cs" Line="30" Column="27" />
+      <File FileName="Sample/Sample/ViewModel/DetailViewModel.cs" Line="60" Column="65" />
+      <File FileName="Sample/Sample/ViewModel/GitViewModel.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/administrador/BHTEC/Sample/Sample/Sample/Service/GitService.cs" line="33" column="1" />
+      <Breakpoint file="/Users/administrador/BHTEC/Sample/Sample/Sample/Service/GitService.cs" line="35" column="17" />
+      <Breakpoint file="/Users/administrador/BHTEC/Sample/Sample/Sample/Service/GitService.cs" line="28" column="1" />
+      <Breakpoint file="/Users/administrador/BHTEC/Sample/Sample/Sample/Service/GitService.cs" line="14" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="Sample/Sample/Service/GitService.cs" line="21" offsetX="567" offsetY="300" expression="responseString" liveUpdate="False" />
+    <Watch file="Sample/Sample/Service/GitService.cs" line="23" offsetX="322" offsetY="330" expression="ex" liveUpdate="False" />
+    <Watch file="Sample/Sample/ViewModel/GitViewModel.cs" line="73" offsetX="343" offsetY="1080" expression="ex" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>
