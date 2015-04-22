@@ -1,6 +1,6 @@
 # BHTEC
 
-Projeto Cross-Platform criado utilizando Xamarin.
+Projeto Cross-Platform criado utilizando Xamarin
 
 
 IOS
