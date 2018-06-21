@@ -1,7 +1,6 @@
-# BHTEC
+# BHTEC Mobile Event
 
-Projeto Cross-Platform criado utilizando Xamarin
-
+This project was one approach about hybrid mobile development, using Xamarin as cross-platform development.
 
 IOS
 
